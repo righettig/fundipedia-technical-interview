@@ -7,7 +7,7 @@ namespace OrderMgmt.Domain.Services.Impl;
 /// Process order rules based on priority.
 /// If no rules are applied then the default "Confirmed" rule is applied.
 /// </summary>
-public class OrderProcessor(IEnumerable<IOrderRule> rules) : IOrderProcessor
+public class OrderProcessor(IEnumerable<IOrderRule> rules) : IOrderProcessor // TODO: check for overlapping rules based on "priority"
 {
     public OrderStatus DetermineOrderStatus(Order order)
     {
