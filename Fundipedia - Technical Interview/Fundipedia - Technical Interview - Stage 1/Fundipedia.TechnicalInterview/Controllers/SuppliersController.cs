@@ -43,6 +43,11 @@ public class SuppliersController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Supplier>> PostSupplier(Supplier supplier)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
         await _supplierService.InsertSupplier(supplier);
 
         return CreatedAtAction("GetSupplier", new { id = supplier.Id }, supplier);

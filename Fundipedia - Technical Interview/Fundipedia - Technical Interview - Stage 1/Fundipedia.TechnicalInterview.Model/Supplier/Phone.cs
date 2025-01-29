@@ -15,6 +15,8 @@ public class Phone
     /// Gets or sets the phone number
     /// </summary>
     [Required]
+    [MaxLength(10, ErrorMessage = "Phone number cannot exceed 10 digits.")]
+    [RegularExpression(@"^\d{1,10}$", ErrorMessage = "Phone number must contain only numeric digits.")]
     public string PhoneNumber { get; set; }
 
     /// <summary>

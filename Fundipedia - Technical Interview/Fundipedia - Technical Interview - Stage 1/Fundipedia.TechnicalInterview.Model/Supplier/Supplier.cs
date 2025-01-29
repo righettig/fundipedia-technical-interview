@@ -53,6 +53,14 @@ public class Supplier : IValidatableObject
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
         var validationResults = new List<ValidationResult>();
+
+        if (ActivationDate < DateTime.UtcNow.Date.AddDays(1))
+        {
+            validationResults.Add(new ValidationResult(
+                "Activation date must be set to tomorrow or later.",
+                new[] { nameof(ActivationDate) }));
+        }
+
         return validationResults;
     }
 }

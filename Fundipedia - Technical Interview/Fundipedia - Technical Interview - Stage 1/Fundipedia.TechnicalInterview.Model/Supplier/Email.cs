@@ -15,6 +15,7 @@ public class Email
     /// Gets or sets the Address
     /// </summary>
     [Required]
+    [EmailAddress(ErrorMessage = "Invalid email format.")]
     public string EmailAddress { get; set; }
 
     /// <summary>
