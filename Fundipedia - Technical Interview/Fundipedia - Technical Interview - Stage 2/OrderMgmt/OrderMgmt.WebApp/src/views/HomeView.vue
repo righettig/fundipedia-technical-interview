@@ -1,9 +1,18 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import { ref } from "vue";
+
+const increaseCount = () => {
+  count.value++;
+
+  if (count.value === 3) {
+    count.value = 0;
+  }
+};
+
+const count = ref(0);
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <Button @click="increaseCount" label="Count"></Button>
+  <h5>{{ count }}</h5>
 </template>
