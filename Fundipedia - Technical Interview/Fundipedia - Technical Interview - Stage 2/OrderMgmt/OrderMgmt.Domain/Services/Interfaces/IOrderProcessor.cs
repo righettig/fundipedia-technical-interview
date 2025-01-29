@@ -2,4 +2,5 @@
 
 public interface IOrderProcessor
 {
+    OrderStatus DetermineOrderStatus(Order order);
 }
