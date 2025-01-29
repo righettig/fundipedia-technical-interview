@@ -91,8 +91,16 @@ const submitForm = async () => {
   padding: 20px;
 }
 
+form {
+  margin-top: 8px;
+}
+
 .form-group {
   margin-bottom: 20px;
+
+  label {
+    margin-right: 4px;
+  }
 }
 
 .result {
