@@ -6,14 +6,16 @@ public class LargeRepairNewCustomerRule : IOrderRule
 {
     public int Priority => 1;
 
+    public bool CanBeApplied(Order order) 
+    {
+        return
+            order.IsLargeOrder &&
+            order.OrderType == OrderType.Repair &&
+            order.IsNewCustomer;
+    }
+
     public OrderStatus Evaluate(Order order)
     {
-        if (order.IsLargeOrder && 
-            order.OrderType == OrderType.Repair && 
-            order.IsNewCustomer)
-        {
-            return OrderStatus.Closed;
-        }
-        return OrderStatus.AuthorisationRequired; // Default fallback if not matching
+        return OrderStatus.Closed;
     }
 }

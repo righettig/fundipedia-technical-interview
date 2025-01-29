@@ -6,14 +6,16 @@ public class LargeRushHireOrderRule : IOrderRule
 {
     public int Priority => 2;
 
+    public bool CanBeApplied(Order order)
+    {
+        return
+            order.IsLargeOrder &&
+            order.IsRushOrder &&
+            order.OrderType == OrderType.Hire;
+    }
+
     public OrderStatus Evaluate(Order order)
     {
-        if (order.IsLargeOrder && 
-            order.IsRushOrder && 
-            order.OrderType == OrderType.Hire)
-        {
-            return OrderStatus.Closed;
-        }
-        return OrderStatus.AuthorisationRequired;
+        return OrderStatus.Closed;
     }
 }

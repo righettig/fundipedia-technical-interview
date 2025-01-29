@@ -6,13 +6,13 @@ public class LargeRepairOrderRule : IOrderRule
 {
     public int Priority => 3;
 
+    public bool CanBeApplied(Order order)
+    {
+        return order.IsLargeOrder && order.OrderType == OrderType.Repair;
+    }
+
     public OrderStatus Evaluate(Order order)
     {
-        if (order.IsLargeOrder && 
-            order.OrderType == OrderType.Repair)
-        {
-            return OrderStatus.AuthorisationRequired;
-        }
-        return OrderStatus.Confirmed; // Default fallback if not matching
+        return OrderStatus.AuthorisationRequired;
     }
 }

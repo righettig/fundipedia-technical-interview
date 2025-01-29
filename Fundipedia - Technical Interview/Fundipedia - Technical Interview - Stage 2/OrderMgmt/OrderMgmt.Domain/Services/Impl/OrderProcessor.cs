@@ -13,11 +13,9 @@ public class OrderProcessor(IEnumerable<IOrderRule> rules) : IOrderProcessor
     {
         foreach (var rule in rules)
         {
-            var status = rule.Evaluate(order);
-
-            if (status != OrderStatus.AuthorisationRequired) // AuthorisationRequired is a fallback, so skip it
+            if (rule.CanBeApplied(order)) 
             {
-                return status;
+                return rule.Evaluate(order);
             }
         }
 

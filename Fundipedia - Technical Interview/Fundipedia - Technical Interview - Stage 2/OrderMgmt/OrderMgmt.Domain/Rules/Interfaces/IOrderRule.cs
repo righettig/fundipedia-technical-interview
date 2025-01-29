@@ -9,5 +9,7 @@ public interface IOrderRule
     // Alternatively priority can be set by adding a rule before another in the order rule processor.
     public int Priority { get; }
 
+    bool CanBeApplied(Order order);
+
     OrderStatus Evaluate(Order order);
 }
