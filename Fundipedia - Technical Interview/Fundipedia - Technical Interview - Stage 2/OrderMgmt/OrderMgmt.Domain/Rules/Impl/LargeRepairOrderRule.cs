@@ -4,10 +4,10 @@ namespace OrderMgmt.Domain.Rules.Impl;
 
 public class LargeRepairOrderRule : IOrderRule
 {
-    public OrderStatus Evaluate(Order orderRequest)
+    public OrderStatus Evaluate(Order order)
     {
-        if (orderRequest.IsLargeOrder && 
-            orderRequest.OrderType == OrderType.Repair)
+        if (order.IsLargeOrder && 
+            order.OrderType == OrderType.Repair)
         {
             return OrderStatus.AuthorisationRequired;
         }

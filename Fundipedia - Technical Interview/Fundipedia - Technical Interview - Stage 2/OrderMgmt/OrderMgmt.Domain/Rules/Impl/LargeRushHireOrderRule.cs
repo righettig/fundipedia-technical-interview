@@ -4,11 +4,11 @@ namespace OrderMgmt.Domain.Rules.Impl;
 
 public class LargeRushHireOrderRule : IOrderRule
 {
-    public OrderStatus Evaluate(Order orderRequest)
+    public OrderStatus Evaluate(Order order)
     {
-        if (orderRequest.IsLargeOrder && 
-            orderRequest.IsRushOrder && 
-            orderRequest.OrderType == OrderType.Hire)
+        if (order.IsLargeOrder && 
+            order.IsRushOrder && 
+            order.OrderType == OrderType.Hire)
         {
             return OrderStatus.Closed;
         }

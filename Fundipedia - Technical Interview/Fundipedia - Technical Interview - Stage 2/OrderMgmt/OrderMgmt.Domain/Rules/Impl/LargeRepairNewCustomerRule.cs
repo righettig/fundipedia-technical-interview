@@ -4,11 +4,11 @@ namespace OrderMgmt.Domain.Rules.Impl;
 
 public class LargeRepairNewCustomerRule : IOrderRule
 {
-    public OrderStatus Evaluate(Order orderRequest)
+    public OrderStatus Evaluate(Order order)
     {
-        if (orderRequest.IsLargeOrder && 
-            orderRequest.OrderType == OrderType.Repair && 
-            orderRequest.IsNewCustomer)
+        if (order.IsLargeOrder && 
+            order.OrderType == OrderType.Repair && 
+            order.IsNewCustomer)
         {
             return OrderStatus.Closed;
         }

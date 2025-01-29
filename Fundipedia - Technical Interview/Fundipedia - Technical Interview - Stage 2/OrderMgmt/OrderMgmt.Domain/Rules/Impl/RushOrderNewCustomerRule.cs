@@ -4,9 +4,9 @@ namespace OrderMgmt.Domain.Rules.Impl;
 
 public class RushOrderNewCustomerRule : IOrderRule
 {
-    public OrderStatus Evaluate(Order orderRequest)
+    public OrderStatus Evaluate(Order order)
     {
-        if (orderRequest.IsRushOrder && orderRequest.IsNewCustomer)
+        if (order.IsRushOrder && order.IsNewCustomer)
         {
             return OrderStatus.AuthorisationRequired;
         }
