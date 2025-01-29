@@ -4,6 +4,8 @@ namespace OrderMgmt.Domain.Rules.Impl;
 
 public class LargeRushHireOrderRule : IOrderRule
 {
+    public int Priority => 2;
+
     public OrderStatus Evaluate(Order order)
     {
         if (order.IsLargeOrder && 

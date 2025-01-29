@@ -4,6 +4,8 @@ namespace OrderMgmt.Domain.Rules.Impl;
 
 public class RushOrderNewCustomerRule : IOrderRule
 {
+    public int Priority => 4;
+
     public OrderStatus Evaluate(Order order)
     {
         if (order.IsRushOrder && order.IsNewCustomer)

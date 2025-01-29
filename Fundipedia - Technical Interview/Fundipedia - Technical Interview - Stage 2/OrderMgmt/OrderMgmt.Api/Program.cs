@@ -1,19 +1,27 @@
-using OrderMgmt.Domain.Rules.Impl;
 using OrderMgmt.Domain.Rules.Interfaces;
 using OrderMgmt.Domain.Services.Impl;
 using OrderMgmt.Domain.Services.Interfaces;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddSingleton<IOrderRule, LargeRepairNewCustomerRule>();
-builder.Services.AddSingleton<IOrderRule, LargeRushHireOrderRule>();
-builder.Services.AddSingleton<IOrderRule, LargeRepairOrderRule>();
-builder.Services.AddSingleton<IOrderRule, RushOrderNewCustomerRule>();
-builder.Services.AddSingleton<IOrderRule, DefaultOrderRule>();
+// Load all rules via reflection
+var orderRuleTypes = Assembly.GetAssembly(typeof(IOrderRule))
+                             .GetTypes()
+                             .Where(t => typeof(IOrderRule).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract)
+                             .ToList();
+
+foreach (var ruleType in orderRuleTypes)
+{
+    builder.Services.AddSingleton(typeof(IOrderRule), ruleType);
+}
 
 builder.Services.AddSingleton<IOrderProcessor>(serviceProvider =>
 {
-    var rules = serviceProvider.GetServices<IOrderRule>();
+    var rules = serviceProvider
+        .GetServices<IOrderRule>()
+        .OrderBy(x => x.Priority);
+
     return new OrderProcessor(rules);
 });
 

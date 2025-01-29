@@ -4,6 +4,8 @@ namespace OrderMgmt.Domain.Rules.Impl;
 
 public class LargeRepairNewCustomerRule : IOrderRule
 {
+    public int Priority => 1;
+
     public OrderStatus Evaluate(Order order)
     {
         if (order.IsLargeOrder && 
