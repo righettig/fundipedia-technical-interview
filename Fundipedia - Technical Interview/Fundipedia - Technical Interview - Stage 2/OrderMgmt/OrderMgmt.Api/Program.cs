@@ -1,8 +1,21 @@
+using OrderMgmt.Domain.Rules.Impl;
+using OrderMgmt.Domain.Rules.Interfaces;
+using OrderMgmt.Domain.Services.Impl;
 using OrderMgmt.Domain.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddSingleton<IOrderProcessor, IOrderProcessor>();
+builder.Services.AddSingleton<IOrderRule, LargeRepairNewCustomerRule>();
+builder.Services.AddSingleton<IOrderRule, LargeRushHireOrderRule>();
+builder.Services.AddSingleton<IOrderRule, LargeRepairOrderRule>();
+builder.Services.AddSingleton<IOrderRule, RushOrderNewCustomerRule>();
+builder.Services.AddSingleton<IOrderRule, DefaultOrderRule>();
+
+builder.Services.AddSingleton<IOrderProcessor>(serviceProvider =>
+{
+    var rules = serviceProvider.GetServices<IOrderRule>();
+    return new OrderProcessor(rules);
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
