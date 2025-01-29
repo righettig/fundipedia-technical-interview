@@ -52,6 +52,9 @@ public class SupplierService : ISupplierService
             }
 
             _context.Suppliers.Remove(supplier);
+
+            // GR: without SaveChangesAsync entity was not being deleted!
+            await _context.SaveChangesAsync();
         }
 
         return supplier;

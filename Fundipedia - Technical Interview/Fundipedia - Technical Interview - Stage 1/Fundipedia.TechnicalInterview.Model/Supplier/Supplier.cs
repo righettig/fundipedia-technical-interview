@@ -33,7 +33,7 @@ public class Supplier : IValidatableObject
     /// <summary>
     /// Gets or sets the activation date
     /// </summary>
-    public DateTime ActivationDate { get; set; }
+    public DateTime? ActivationDate { get; set; }
 
     /// <summary>
     /// Gets or sets Emails for the party
