@@ -1,4 +1,4 @@
-﻿namespace OrderMgmt.Api.Domain;
+﻿namespace OrderMgmt.Domain;
 
 /// <summary>
 /// Represents an order processing rule.

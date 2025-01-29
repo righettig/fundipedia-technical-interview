@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OrderMgmt.Api\OrderMgmt.Api.csproj" />
+    <ProjectReference Include="..\OrderMgmt.Domain\OrderMgmt.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

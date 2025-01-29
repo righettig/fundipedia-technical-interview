@@ -1,4 +1,4 @@
-﻿namespace OrderMgmt.Api.Services.Impl;
+﻿namespace OrderMgmt.Domain.Services.Impl;
 
 /// <summary>
 /// Process order rules based on priority.

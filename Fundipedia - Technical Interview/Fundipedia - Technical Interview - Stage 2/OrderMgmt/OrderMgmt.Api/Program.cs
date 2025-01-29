@@ -1,6 +1,8 @@
+using OrderMgmt.Domain.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddSingleton<IOrderProcessor, IOrderProcessor>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

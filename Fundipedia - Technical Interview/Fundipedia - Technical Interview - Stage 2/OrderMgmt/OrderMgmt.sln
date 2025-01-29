@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderMgmt.Api", "OrderMgmt.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderMgmt.Tests", "OrderMgmt.Tests\OrderMgmt.Tests.csproj", "{883760EB-E66E-4347-BECA-51384774C010}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderMgmt.Domain", "OrderMgmt.Domain\OrderMgmt.Domain.csproj", "{4F6F1D4B-31FC-4404-BFD4-A54EBDBB0E38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{883760EB-E66E-4347-BECA-51384774C010}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{883760EB-E66E-4347-BECA-51384774C010}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{883760EB-E66E-4347-BECA-51384774C010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F6F1D4B-31FC-4404-BFD4-A54EBDBB0E38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F6F1D4B-31FC-4404-BFD4-A54EBDBB0E38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F6F1D4B-31FC-4404-BFD4-A54EBDBB0E38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F6F1D4B-31FC-4404-BFD4-A54EBDBB0E38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
