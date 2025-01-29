@@ -5,6 +5,16 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowWebApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") // Allow this origin
+              .AllowAnyMethod()                     // Allow any HTTP method
+              .AllowAnyHeader();                    // Allow any header
+    });
+});
+
 // Load all rules via reflection
 var orderRuleTypes = Assembly.GetAssembly(typeof(IOrderRule))
                              .GetTypes()
@@ -39,6 +49,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
+
+app.UseCors("AllowWebApp");
 
 app.MapControllers();
 
