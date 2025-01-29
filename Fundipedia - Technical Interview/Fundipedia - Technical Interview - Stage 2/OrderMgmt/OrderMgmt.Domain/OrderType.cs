@@ -1,5 +1,7 @@
 ﻿namespace OrderMgmt.Domain;
 
-public class OrderType
+public enum OrderType
 {
+    Repair,
+    Hire,
 }

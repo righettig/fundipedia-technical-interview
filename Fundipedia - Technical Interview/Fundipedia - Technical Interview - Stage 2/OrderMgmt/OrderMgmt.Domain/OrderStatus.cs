@@ -1,5 +1,8 @@
 ﻿namespace OrderMgmt.Domain;
 
-public class OrderStatus
+public enum OrderStatus
 {
+    Confirmed,
+    Closed,
+    AuthorisationRequired
 }
