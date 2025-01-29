@@ -6,6 +6,8 @@ import { createApp } from 'vue';
 import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
 import Button from "primevue/button";
+import Select from 'primevue/select';
+import Checkbox from 'primevue/checkbox';
 
 import App from './App.vue';
 import router from './router';
@@ -21,5 +23,7 @@ app.use(PrimeVue, {
 });
 
 app.component("Button", Button);
+app.component("Select", Select);
+app.component("Checkbox", Checkbox);
 
 app.mount('#app');
